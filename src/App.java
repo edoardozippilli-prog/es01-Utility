@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 /**
  * Classe principale dell'applicazione.
@@ -17,15 +15,28 @@ public class App {
      * @param args Eventuali argomenti passati da riga di comando.
      * @throws IOException In caso di errore durante la lettura dallo stream di input.
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException 
+    {
         String titoloProgetto = "Esercitazione Java 25 - 4ª ITT";
         stampaIntestazione(titoloProgetto);
 
-        // Oggetto per la lettura dell'input da tastiera (es. String s = tastiera.readLine();)
-        BufferedReader tastiera = new BufferedReader(new InputStreamReader(System.in));
-
         // TODO: Inserisci qui il codice dell'esercizio
-        
+        //int valore=Utility.leggiIntero("Inserisci un numero ");
+        //System.out.println("Il numero è "+valore);
+
+        //
+        String[] vociMenu = {"Prima opzione", "Seconda opzione", "Terza opzione"};
+        int scelta;
+        do {
+            scelta = Utility.mostraMenu("Titolo Programma", "Esci", vociMenu);
+            switch (scelta) 
+            {
+                case 1: stampaIntestazione("ciao"); break;
+                //case 2: secondaOpzione(); break;
+                //case 3: terzaOpzione(); break;
+                case 0: System.out.println("Chiusura programma..."); break;
+            }
+        } while (scelta != 0);
     }
 
     /**
@@ -33,7 +44,8 @@ public class App {
      *
      * @param titolo Il testo da visualizzare come intestazione.
      */
-    public static void stampaIntestazione(String titolo) {
+    public static void stampaIntestazione(String titolo) 
+    {
         System.out.println("=========================================");
         System.out.println("===   " + titolo );
         System.out.println("=========================================");
